@@ -28,14 +28,12 @@ class Client {
         in = new ObjectInputStream(socket.getInputStream());
         String newPort = (String) in.readObject();
         System.out.println("Number Port: " + newPort);
-
+		
         //// switch to new port
         socket = new Socket(HOST, Integer.parseInt(newPort));
         out = new ObjectOutputStream(socket.getOutputStream());
         in = new ObjectInputStream(socket.getInputStream());
-		String l ;
-		int x = 1;
-		while (x == 1 ){
+
         out.writeObject("100");
         String data = (String) in.readObject();
         //System.out.println("data :"+data);
@@ -82,18 +80,13 @@ class Client {
         }else{
             System.out.println("YOU WIN");
         }
-		System.out.println("Play agian Please Enter = y ");
-		System.out.println("Exit Game Enter = n ");
-		l = (new Scanner(System.in)).nextLine();
-		if (l.equals("Y"))
-		{
-			x = 0;
-		}
-		else x = 1;
-		}
+		//System.out.println("Play agian Please Enter = y ");
+		//System.out.println("Exit Game Enter = n ");
+		
         out.close();
         in.close();
         socket.close();
        
-	}
+	
+}
 }
